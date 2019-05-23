@@ -1,4 +1,4 @@
-var GIPHY_API_URL = 'https://api.giphy.com/v1/';
+var GIPHY_API_URL = 'https://api.giphy.com';
 var GIPHY_PUB_KEY = 'TgTTdNPBINaTR3H90MOu25AP372HjQRw';
 
 App = React. createClass ({
@@ -48,11 +48,11 @@ App = React. createClass ({
 		};
 		return (
 			<div style={styles}>
-					<h1>Gif Engine!</h1>
-					<p>Find Gif on <a href='http://giphy.com'>giphy</a>.Press enter to get more gifs.</p>
-					<Search 
-						onSearch={this.handleSearch}
-					/>
+				<h1>Gif Engine!</h1>
+				<p>Find Gif on <a href='http://giphy.com'> giphy </a> .Press enter to get more gifs.</p>
+				<Search 
+					onSearch={this.handleSearch}
+				/>
 				<Gif 
 					loading={this.state.loading}
 					url={this.state.gif.url}
@@ -62,3 +62,6 @@ App = React. createClass ({
 		);
 	}
 });
+
+var app = React.createElement(App);
+ReactDOM.render(app, document.getElementById('app'));
