@@ -23,16 +23,16 @@ App = React. createClass ({
 		}.bind(this));
 	},
 
-	getGif: function (searchingText, callback) {
-		var url = GIPHY_API_URL	+ '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;
-		var xhr = new.XMLHttpRequest();
+	getGif: function(searchingText, callback) {
+		var url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;
+		var xhr = new XMLHttpRequest();
 		xhr.open('GET', url);
-		xhr.onload = function() {
-			if (xhr.status === 200) {
-				var data = JSON.parse(xhr.responseText).data;
+    	xhr.onload = function() {
+        	if (xhr.status === 200) {
+           		var data = JSON.parse(xhr.responseText).data;
 				var gif = {
 					url: data.fixed_width_downsampled_url,
-					sourceUrl: data.url
+                	sourceUrl: data.url
 				};
 				callback(gif);
 			}
@@ -48,11 +48,11 @@ App = React. createClass ({
 		};
 		return (
 			<div style={styles}>
-				<h1>Gif Engine!</h1>
-				<p>Find Gif on <a href='http://giphy.com'>giphy</a>.Press enter to get more gifs.</p>
-				<Search 
-					onSearch={this.handleSearch}
-				/>
+					<h1>Gif Engine!</h1>
+					<p>Find Gif on <a href='http://giphy.com'>giphy</a>.Press enter to get more gifs.</p>
+					<Search 
+						onSearch={this.handleSearch}
+					/>
 				<Gif 
 					loading={this.state.loading}
 					url={this.state.gif.url}
